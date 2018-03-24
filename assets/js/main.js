@@ -58,13 +58,6 @@ function imageState() {
       }
 }
 
-
-
-
-
-
-
-
 //Initial Button Render on Page Load
 renderButtons();
 //Adding Button Event
