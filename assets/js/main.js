@@ -37,6 +37,7 @@ function imageCall() {
             topicImage.attr("src", result[i].images.fixed_height_still.url);
             topicImage.attr("data-still", result[i].images.fixed_height_still.url);
             topicImage.attr("data-animate", result[i].images.fixed_height.url);
+            topicImage.attr("data-state", "still");
             gifDiv.append(p);
             gifDiv.append(topicImage);
             $(".js-gifsDiv").prepend(gifDiv);
