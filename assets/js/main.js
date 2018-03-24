@@ -33,7 +33,10 @@ function imageCall() {
             var rating = result[i].rating;
             var p = $("<p>").text("Rating: " + rating);
             var topicImage = $("<img>");
+            topicImage.addClass("gif");
             topicImage.attr("src", result[i].images.fixed_height_still.url);
+            topicImage.attr("data-still", result[i].images.fixed_height_still.url);
+            topicImage.attr("data-animate", result[i].images.fixed_height.url);
             gifDiv.append(p);
             gifDiv.append(topicImage);
             $(".js-gifsDiv").prepend(gifDiv);
@@ -43,6 +46,16 @@ function imageCall() {
 
 }
 
+function imageState() {
+    var state = $(this).attr("data-state");
+    if (state === "still") {
+        $(this).attr("src", $(this).attr("data-animate"));
+        $(this).attr("data-state", "animate");
+      } else {
+        $(this).attr("src", $(this).attr("data-still"));
+        $(this).attr("data-state", "still");
+      }
+}
 
 
 
@@ -63,3 +76,4 @@ $(".add-topic").on("click", function(event){
 $(document).on("click", ".topic", imageCall);
 
 //Clicking Image Event
+$(document).on("click", ".gif", imageState);
